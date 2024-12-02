@@ -1,0 +1,98 @@
+/* autos.css */
+
+/* Importaciones de slick-carousel */
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
+/* Contenedor de la tarjeta */
+.auto-card-container {
+  width: 220px; /* Ajusta el ancho según el tamaño circular */
+  margin: 10px auto;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tarjeta con efecto flip */
+.auto-card {
+  width: 200px;
+  height: 200px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  border-radius: 50%; /* Circular */
+}
+
+/* Estado flip de la tarjeta */
+.auto-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+/* Frente y atrás de la tarjeta */
+.auto-card-front, .auto-card-back {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%; /* Circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo del frente de la tarjeta */
+.auto-card-front {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Estilo de la parte trasera de la tarjeta */
+.auto-card-back {
+  background-color: #ffffff;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Información dentro de la tarjeta trasera */
+.auto-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 4px 0;
+  font-size: 0.9em;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.auto-info p {
+  margin: 0;
+}
+
+/* Opcional: Escalado al seleccionar la tarjeta */
+.auto-card-container.selected {
+  transform: scale(1.1);
+}
+
+/* Ajustes para react-slick */
+.slick-slide {
+  display: flex !important;
+  justify-content: center;
+}
+
+.slick-dots {
+  bottom: -30px;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: #000;
+}
